@@ -6,7 +6,7 @@ https://ocaml.org/docs/installing-ocaml
 
 ```bash
 brew install opam
-brew install curl # this was necessary for me otherwise `opam init -y' would fail
+brew install curl # this was necessary for me, otherwise `opam init -y' would fail
 opam init -y
 eval $(opam env)
 ```
@@ -42,3 +42,21 @@ dune init proj hello
 dune build
 dune exec hello
 ```
+
+### Watch mode
+
+This will monitor filesystem changes and update the build/binary immediately.
+
+```bash
+dune build -w # or
+dune exec hello -w
+```
+
+## Language Server
+
+```bash
+opam install ocaml-lsp-server
+```
+
+- In Neovim: `:Mason`, add `ocamllsp`
+- add "ocamllsp" to mason.lua in neovim config files
