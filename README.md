@@ -2,6 +2,8 @@
 
 ## Installation
 
+https://ocaml.org/docs/installing-ocaml
+
 ```bash
 brew install opam
 brew install curl # this was necessary for me otherwise `opam init -y' would fail
@@ -22,4 +24,21 @@ ERROR] Could not update repository "default": OpamDownload.Download_fail(_, "Dow
 ```bash
 #  switch   compiler     description
 →  default  ocaml.5.1.1  default
+```
+
+### Installing `dune`
+
+```bash
+opam update
+opam upgrade dune
+```
+
+## Hello World
+
+https://ocaml.org/docs/your-first-program
+
+```bash
+dune init proj hello
+dune build
+dune exec hello
 ```
