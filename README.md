@@ -1,5 +1,9 @@
 # OCAML
 
+## Resources
+
+- https://cs3110.github.io/textbook/cover.html
+
 ## Installation
 
 https://ocaml.org/docs/installing-ocaml
@@ -60,3 +64,14 @@ opam install ocaml-lsp-server
 
 - In Neovim: `:Mason`, add `ocamllsp`
 - add "ocamllsp" to mason.lua in neovim config files
+
+### Utop (Universal Toplevel)
+
+https://opam.ocaml.org/blog/about-utop/
+
+```bash
+opam install utop
+dune utop
+```
+
+`Ctrl-D` or `#quit;;` to quit utop.
