@@ -2,7 +2,8 @@
 
 ## Resources
 
-- https://cs3110.github.io/textbook/cover.html
+- Book: https://cs3110.github.io/textbook/cover.html
+- Exercises: https://ocaml.org/exercises
 
 ## Installation
 
