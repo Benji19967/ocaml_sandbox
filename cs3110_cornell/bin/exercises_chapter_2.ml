@@ -176,4 +176,75 @@ overflow occurred?
 
 > Very cool solution. n is a counter down, but the fibonacci numbers are 
 computed bottom up. 
+
+----- *)
+
+(* Exercise: poly types [★★★]
+
+What is the type of each of the functions below? You can ask the toplevel to check 
+your answers.
+
+let f x = if x then x else x
+let g x y = if y then x else x
+let h x y z = if x then y else z
+let i x y z = if x then y else y 
+
+> val f : bool -> bool = <fun>
+> val g : 'a -> bool -> 'a = <fun>
+> val h : bool -> 'a -> 'a -> 'a = <fun>
+> val i : bool -> 'a -> 'b -> 'a = <fun>
+
+----- *)
+
+(* Exercise: divide [★★]
+
+Write a function divide : numerator:float -> denominator:float -> float. 
+Apply your function. 
+> let divide ~numerator ~denominator = numerator /. denominator
+> divide ~denominator:2. ~numerator:10 
+
+---- *)
+
+(* Exercise: associativity [★★]
+
+Suppose that we have defined let add x y = x + y. 
+Which of the following produces an integer, which produces a function, 
+and which produces an error? Decide on an answer, then check your answer in the toplevel.
+
+add 5 1
+> integer
+add 5
+> function
+(add 5) 1
+> function
+add (5 1)
+> Error
+
+----- *)
+
+(* Exercise: average [★★]
+
+Define an infix operator +/. to compute the average of two floating-point numbers. 
+For example,
+
+1.0 +/. 2.0 = 1.5
+0. +/. 0. = 0.
+
+> let (+/.) x y = (x +. y) /. 2.
+
+----- *)
+
+(* Exercise: hello world [★]
+
+Type the following in utop:
+
+print_endline "Hello world!";;
+> Hello world!
+> - : unit = ()
+
+print_string "Hello world!";;
+> Hello world!- : unit = ()
+
+Notice the difference in output from each.
+
 ----- *)
