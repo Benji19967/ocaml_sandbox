@@ -60,6 +60,7 @@ dune exec hello -w
 
 ```bash
 opam install ocaml-lsp-server
+opam install ocamlformat
 ```
 
 - In Neovim: `:Mason`, add `ocamllsp`
