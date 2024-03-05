@@ -81,6 +81,47 @@ applying it to a few inputs. Turn those test cases into assertions.
 
 ----- *)
 
+(* Exercise: more fun [★★]
+
+Define a function that computes the cube of a floating-point number. 
+Test your function by applying it to a few inputs.
+> let cube x = x *. x *. x
+> cube 3.
+> - : float = 27.
+
+Define a function that computes the sign (1, 0, or -1) of an integer. 
+Use a nested if expression. Test your function by applying it to a few inputs.
+> let sign x = if x > 0 then 1
+else if x = 0 then 0
+else -1
+> sign 3
+> - : int = 1 
+> sign 0
+> - : int = 0 
+> sign (-10)
+> - : int = -1 
+
+Define a function that computes the area of a circle given its radius. 
+Test your function with assert.
+> let area r = Float.pi *. r *. r
+> assert (area 1. = Float.pi)
+
+For the latter, bear in mind that floating-point arithmetic is not exact. 
+Instead of asserting an exact value, you should assert that the result is
+“close enough”, e.g., within 1e-5. If that’s unfamiliar to you, it would be worthwhile 
+to read up on floating-point arithmetic.
+
+----- *)
+
+(* Exercise: RMS [★★]
+
+Define a function that computes the root mean square of two numbers—i.e. 
+sqrt((x^2 + y^2) / 2). Test your function with assert. 
+> let rms x y = Float.sqrt (((x *. x) +. (y *. y)) /. 2.)
+> assert (Float.abs (rms 3. 4. -. 3.5355) < 0.0001)
+
+----- *)
+
 (* Exercise: date fun [★★★]
 
 Define a function that takes an integer d and string m as input and returns true just 
@@ -92,5 +133,19 @@ inclusive, whereas if the month is Feb, then the day is between 1 and 28, inclus
 
 How terse (i.e., few and short lines of code) can you make your function? 
 You can definitely do this in fewer than 12 lines. 
+> 
+
+----- *)
+
+(* Exercise: fib [★★]
+
+Define a recursive function fib : int -> int, such that fib n is the nth number in the 
+Fibonacci sequence, which is 1, 1, 2, 3, 5, 8, 13, … That is:
+fib 1 = 1,
+fib 2 = 1, and
+fib n = fib (n-1) + fib (n-2) for any n > 2.
+
+Test your function in the toplevel. 
+> let rec fib n = if n <= 1 then n else fib (n-1) + fib (n-2);;
 
 ----- *)
