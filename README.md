@@ -76,3 +76,11 @@ dune utop
 ```
 
 `Ctrl-D` or `#quit;;` to quit utop.
+
+## Unit testing
+
+```bash
+opam install ounit2
+dune build
+dune test
+```

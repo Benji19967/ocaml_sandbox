@@ -1,2 +1,3 @@
 (test
- (name test_cs3110_cornell))
+ (name test_cs3110_cornell)
+ (libraries ounit2 cs3110_cornell))
