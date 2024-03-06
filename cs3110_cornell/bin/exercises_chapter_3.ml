@@ -93,3 +93,54 @@ and do not write any pattern matching code of your own.
 Your solutions will be only one or two lines of code each. 
 
 ----- *)
+
+(* Exercise: take drop [★★★]
+
+Write a function take : int -> 'a list -> 'a list such that take n lst returns the 
+first n elements of lst. If lst has fewer than n elements, return all of them.
+> let rec take n lst = 
+match n with 
+| 0 -> []
+| _ -> match lst with
+    | [] -> []
+    | h :: t -> h :: take (n-1) t
+
+Write a function drop : int -> 'a list -> 'a list such that drop n lst returns 
+all but the first n elements of lst. If lst has fewer than n elements, return the 
+empty list. 
+> let rec drop n lst = 
+match n with 
+| 0 -> lst
+| _ -> match lst with 
+    | [] -> []
+    | h :: t -> drop (n-1) t
+
+----- *)
+
+(* Exercise: take drop tail [★★★★]
+
+Revise your solutions for take and drop to be tail recursive, if they aren’t already. 
+Test them on long lists with large values of n to see whether they run out of stack 
+space. To construct long lists, use the -- operator from the lists section. 
+
+--- TAKE ---
+> `take 99_000_000 (0 -- 100_000_000)` produces a Stack overflow for the above 
+solution of take. Let's try to make it tail-recursive.
+
+> let rec take_helper n lst acc = 
+match n with 
+| 0 -> acc 
+| _ -> match lst with
+    | [] -> acc
+    | h :: t -> take_helper (n-1) t (h :: acc)
+
+> let take_tr = List.rev (take_helper n lst [])
+or
+> let take_tr = take_helper n lst [] |> List.rev
+
+--- DROP ---
+
+> I think the above `drop` solution is already tail-recursive. No work 
+is done in the match arm after calls to `drop` return.
+
+----- *)
