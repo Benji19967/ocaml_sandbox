@@ -144,3 +144,23 @@ or
 is done in the match arm after calls to `drop` return.
 
 ----- *)
+
+(* Exercise: unimodal [★★★]
+
+Write a function is_unimodal : int list -> bool that takes an integer list and 
+returns whether that list is unimodal. A unimodal list is a list that monotonically 
+increases to some maximum value then monotonically decreases after that value. 
+Either or both segments (increasing or decreasing) may be empty. A constant list is 
+unimodal, as is the empty list. 
+> let rec is_nonincreasing lst =
+match lst with 
+| [] -> true
+| _ :: [] -> true
+| x1 :: x2 :: t -> if x1 < x2 then false else is_nonincreasing (x2 :: t);;
+> let rec unimodal lst = 
+match lst with 
+| [] -> true
+| _ :: [] -> true
+| x1 :: x2 :: t -> if x2 < x1 then is_nonincreasing (x2 :: t) else unimodal (x2 :: t);;
+
+----- *)
