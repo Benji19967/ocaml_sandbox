@@ -164,3 +164,27 @@ match lst with
 | x1 :: x2 :: t -> if x2 < x1 then is_nonincreasing (x2 :: t) else unimodal (x2 :: t);;
 
 ----- *)
+
+(* Exercise: powerset [★★★]
+
+Write a function powerset : int list -> int list list that takes a set S represented as
+a list and returns the set of all subsets of S. The order of subsets in the powerset 
+and the order of elements in the subsets do not matter.
+
+Hint: Consider the recursive structure of this problem. Suppose you already have p,
+such that p = powerset s. How could you use p to compute powerset (x :: s)? 
+> Works! But it doesn't seem very elegant. I wonder if there is a simpler
+solution.
+> let rec add_element el lst = 
+match lst with
+| [] -> []
+| [[]] -> [[];[el]]| h :: t -> (el :: h) :: add_element el t
+> let rec powerset lst = 
+match lst with
+| [] -> [[]]
+| h :: [] -> [[];[h]]
+| h :: t -> match powerset t with
+    | [[]] -> [[];[h]]    
+    | h1 :: t1 -> (add_element h (h1::t1)) @ (h1::t1)
+
+----- *)
