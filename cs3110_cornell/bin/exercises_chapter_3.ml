@@ -187,4 +187,11 @@ match lst with
     | [[]] -> [[];[h]]    
     | h1 :: t1 -> (add_element h (h1::t1)) @ (h1::t1)
 
+> Cleaner solution. Is there even better though?
+> let rec powerset lst = 
+match lst with
+| [] -> [[]]
+| h :: [] -> [[];[h]]
+| h :: t -> (let ps = powerset t) in (add_element h ps) @ ps
+
 ----- *)
